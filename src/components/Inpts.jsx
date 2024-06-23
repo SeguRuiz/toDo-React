@@ -1,13 +1,14 @@
 import { forwardRef } from "react";
 
-const Inpts = forwardRef(({ placeholder, type, value, fu }, ref) => {
+const Inpts = forwardRef(({ placeholder, type, value, Change_Value}, ref) => {
   return (
     <input
       type={type}
       placeholder={placeholder}
       ref={ref}
       value={value}
-      onInput={fu}
+      onInput={Change_Value}
+      
     />
   );
 });

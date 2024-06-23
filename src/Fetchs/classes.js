@@ -1,15 +1,19 @@
+
 export class Posts_Tools {
+  error = 'error a ocurrido'
   post_The_Data = async (the_Data) => {
     try {
-      await fetch("http://localhost:3002/users", the_Data);
+      const response = await fetch("http://localhost:3002/users", the_Data);
+      const data = await response.json() 
+      return data
     } catch (error) {
-      console.log(error);
+      return false
     }
   };
 
   data_For_Posts = {
     method: "post",
-    headers: {
+    headers: { 
       "Content-Type": "application/json",
     },
 

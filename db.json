@@ -1,5 +1,31 @@
 {
   "users": [
-    
+    {
+      "id": "0fc7",
+      "info": {
+        "name": "Luis",
+        "email": "luis@gmail.com",
+        "password": "123l"
+      },
+      "tasks": []
+    },
+    {
+      "id": "d54f",
+      "info": {
+        "name": "mmmm",
+        "email": "kk@gmail.com",
+        "password": "233"
+      },
+      "tasks": []
+    },
+    {
+      "id": "abc7",
+      "info": {
+        "name": "lll",
+        "email": "llll@gmail.com",
+        "password": "nnencje"
+      },
+      "tasks": []
+    }
   ]
 }
