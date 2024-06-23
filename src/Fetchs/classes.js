@@ -1,6 +1,6 @@
 
 export class Posts_Tools {
-  error = 'error a ocurrido'
+  
   post_The_Data = async (the_Data) => {
     try {
       const response = await fetch("http://localhost:3002/users", the_Data);
