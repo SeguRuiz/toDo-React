@@ -3,13 +3,13 @@ import { useRef, useState } from "react";
 import { Posts_Tools } from "../Fetchs/classes";
 
 const Register = () => {
-  const [registered_User, set_Registered_User] = useState({
+  let [registered_User, set_Registered_User] = useState({
     user: null,
-    coincidence: false,
-    info_To_User:'Registro',
-    error: false
+    info_To_User: "Registro",
+    error: false,
   });
 
+  let [user_Coincidence, set_Coincidence] = useState(false);
   const user_Inp = useRef();
   const email_Inp = useRef();
   const pass_Inp = useRef();
@@ -33,38 +33,48 @@ const Register = () => {
 
   let register_Users = async (o) => {
     o.preventDefault();
-    const see_Data = new Posts_Tools()
+    const see_Data = new Posts_Tools();
 
-    const data = await see_Data.post_The_Data()
-
-    
+    const data = await see_Data.post_The_Data();
 
     let user_Value = user_Inp.current.value.trim();
     let email_Value = email_Inp.current.value.trim();
     let pass_Value = pass_Inp.current.value.trim();
 
-    
+    let find_User_Name =
+      (await data.find((users) => users.info.name == user_Value)) ?? false;
+    let find_User_Email =
+      (await data.find((users) => users.info.email == email_Value)) ?? false;
 
+    if (find_User_Name != false || find_User_Email != false) {
+      set_Registered_User((userState) => ({
+        ...userState,
+        info_To_User: "Esos datos ya estan en uso",
+      }));
+    }
 
     if (
       user_Value != "" &&
       email_Value != "" &&
       pass_Value != "" &&
-      registered_User.coincidence == false
+      find_User_Name != false &&
+      find_User_Email != false
     ) {
+      console.log(registered_User);
+      
       let new_User = new Posts_Tools(user_Value, email_Value, pass_Value);
 
       (await new_User.post_The_Data(new_User.data_For_Posts))
         ? set_Registered_User((userState) => ({
             ...userState,
             user: user_Value,
-            info_To_User: 'Has sido registrado ' + user_Value,
+            info_To_User: "Has sido registrado " + user_Value,
           }))
         : set_Registered_User((userState) => ({
             ...userState,
             user: null,
             error: true,
-            info_To_User: 'Ocurrio un error al subir tu data!'
+            info_To_User: "Ocurrio un error al subir tu data!",
           }));
 
       set_Email_Value("");
