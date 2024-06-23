@@ -1,12 +1,25 @@
-
+import { Posts_Tools } from "../Fetchs/classes";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "../pages/Home";
+import Register from "../pages/Register";
+import Login from "../pages/Login";
+import Navbar from "../components/Navbar";
 
 function App() {
-  
   return (
     <>
-      <h1>Hola</h1>
+      
+
+      <BrowserRouter>
+      <Navbar />
+        <Routes>
+          <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Register />} />
+          <Route path="/Login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
