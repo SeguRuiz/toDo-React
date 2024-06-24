@@ -1,8 +1,11 @@
 import Inpts from "../components/Inpts";
 import { Posts_Tools } from "../Fetchs/classes";
-import { useState, useRef } from "react";
+import { useState, useRef, } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const go_To_Home = useNavigate()
+
   let [validate_State, set_Validate_State] = useState({
     user_Name: null,
     info_To_User: "Login",
@@ -15,17 +18,17 @@ const Login = () => {
     x.preventDefault();
 
     const see_Data = new Posts_Tools();
-    const data = await see_Data.post_The_Data(); 
+    const data = await see_Data.post_The_Data();
 
-    data ? (console.log('no hubo errores en el fetch')) : (set_Validate_State((state) => ({
-      ...state,
-      info_To_User: "Ocurrio un error verificando tu informacion",
-    })))
+    data
+      ? console.log("no hubo errores en el fetch")
+      : set_Validate_State((state) => ({
+          ...state,
+          info_To_User: "Ocurrio un error verificando tu informacion",
+        }));
 
     let user_Value = inp_User_Login.current.value.trim();
     let Pass_Value = inp_Pass_Login.current.value.trim();
-
-
 
     let find_User_Name =
       (await data.find((users) => users.info.name == user_Value)) ?? false;
@@ -41,9 +44,13 @@ const Login = () => {
     ) {
       localStorage.setItem("user_Sesion", find_User_Name.id);
       set_Validate_State((state) => ({
-          ...state,
-          info_To_User: "Bienvenido " + user_Value,
-        }));
+        ...state,
+        info_To_User: "Bienvenido " + user_Value,
+      }));
+
+      setTimeout(()=>{
+      go_To_Home('/Home')
+      }, 1000)
     } else {
       if (user_Value == "" || Pass_Value == "") {
         set_Validate_State((state) => ({

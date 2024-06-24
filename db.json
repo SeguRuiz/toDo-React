@@ -1,31 +1,26 @@
 {
   "users": [
     {
-      "id": "17be",
-      "info": {
-        "name": "luis",
-        "email": "nnjnjn@gmail.com",
-        "password": "jwijjw"
-      },
-      "tasks": []
-    },
-    {
-      "id": "4824",
+      "id": "3cd0",
       "info": {
         "name": "Luis",
         "email": "luis@gmail.com",
-        "password": "rrr"
+        "password": "123"
       },
-      "tasks": []
-    },
-    {
-      "id": "bbe2",
-      "info": {
-        "name": "Paco",
-        "email": "paco@gmail.com",
-        "password": "luis123"
-      },
-      "tasks": []
+      "tasks": [
+        {
+          "task": "Nueva tarea",
+          "id": "3b0bc91f-32b7-fede-7948-d9d6188546f4"
+        },
+        {
+          "task": "hola",
+          "id": "9e67ba7a-9454-906b-f896-24782114cf06"
+        },
+        {
+          "task": "nueva tarea",
+          "id": "d7e72808-fd81-6854-385a-ed6062728072"
+        }
+      ]
     }
   ]
 }
