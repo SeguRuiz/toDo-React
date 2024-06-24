@@ -1,15 +1,17 @@
 import Inpts from "../components/Inpts";
 import { useRef, useState } from "react";
 import { Posts_Tools } from "../Fetchs/classes";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const go_To_Login = useNavigate()
+
   let [registered_User, set_Registered_User] = useState({
     user: null,
     info_To_User: "Registro",
     error: false,
   });
 
-  let [user_Coincidence, set_Coincidence] = useState(false);
   const user_Inp = useRef();
   const email_Inp = useRef();
   const pass_Inp = useRef();
@@ -57,11 +59,11 @@ const Register = () => {
       user_Value != "" &&
       email_Value != "" &&
       pass_Value != "" &&
-      find_User_Name != false &&
-      find_User_Email != false
+      find_User_Name == false &&
+      find_User_Email == false
     ) {
-      console.log(registered_User);
       
+
       let new_User = new Posts_Tools(user_Value, email_Value, pass_Value);
 
       (await new_User.post_The_Data(new_User.data_For_Posts))
@@ -80,6 +82,8 @@ const Register = () => {
       set_Email_Value("");
       set_User_Value("");
       set_Pass_Value("");
+
+      go_To_Login('/Login')
     }
   };
 
@@ -91,7 +95,7 @@ const Register = () => {
 
       <div id="register_Container">
         <form onSubmit={register_Users}>
-          <label htmlFor="">User</label>
+          <label>User</label>
           <br />
           <Inpts
             type={"text"}
