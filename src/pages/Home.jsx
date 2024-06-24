@@ -42,6 +42,7 @@ export const Home = () => {
       };
 
       Find_user.tasks.push(task);
+      console.log(Find_user.tasks);
 
       let new_Task_Modification = new Put_Tools(Find_user);
 
