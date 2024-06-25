@@ -5,10 +5,12 @@ import { Put_Tools, Posts_Tools } from "../Fetchs/classes";
 import uuid from "react-uuid";
 import ShowTasks from "../components/showTasks";
 import Counter from "../components/Counter";
+import { useNavigate } from "react-router-dom";
 
 export const Data_Context = createContext();
 
 export const Home = () => {
+  let goback = useNavigate()
   let user_Data = useContext(User_Context);
 
   const [newData, setData] = useState(0);
@@ -67,10 +69,16 @@ export const Home = () => {
       setinp_Add("");
     }
   };
+
+  let cerrarSesion = ()=>{
+  localStorage.removeItem('user_Sesion')
+  goback('/Login')
+  }
   return (
     <>
     <div id="info_User">
       <h1>{"Bienvenido " + user_Data.user_In_Sesion.user}</h1>
+      <div><button onClick={cerrarSesion}>Cerrar sesion</button></div>
     </div>
       <br />
 
