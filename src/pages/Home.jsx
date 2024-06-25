@@ -4,26 +4,25 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { Put_Tools, Posts_Tools } from "../Fetchs/classes";
 import uuid from "react-uuid";
 import ShowTasks from "../components/showTasks";
+import Counter from "../components/Counter";
 
-
-export const Data_Context = createContext()
+export const Data_Context = createContext();
 
 export const Home = () => {
   let user_Data = useContext(User_Context);
- 
-  const [newData, setData] = useState(null);
-  
+
+  const [newData, setData] = useState(0);
+
   let add_Tasks_Inp = useRef();
-  let [Change_Inp, setinp_Add] = useState('')
+  let [Change_Inp, setinp_Add] = useState("");
 
   let Change_Add_Inp_Value = (x) => {
     setinp_Add(x.target.value);
   };
 
-
   const submit_Tasks = async (x) => {
     x.preventDefault();
-    
+
     let see_Data = new Posts_Tools();
     let data = await see_Data.post_The_Data();
 
@@ -39,11 +38,10 @@ export const Home = () => {
       let task = {
         task: inpt_Task_Value,
         id: id,
-        state: false
+        state: false,
       };
 
       Find_user.tasks.push(task);
-      
 
       let new_Task_Modification = new Put_Tools(Find_user);
 
@@ -51,25 +49,33 @@ export const Home = () => {
         Find_user.id,
         new_Task_Modification.data_For_Puts
       );
-      
-      let dataUpdated = await data.find(
-        (users) => users.id == user_Data.user_In_Sesion.user_id
-      ) ?? false;
 
-      
+      let dataUpdated =
+        (await data.find(
+          (users) => users.id == user_Data.user_In_Sesion.user_id
+        )) ?? false;
+
       //Bombillo
-      setData(dataUpdated) 
-      
-      setinp_Add('')
-    }
-    }  
-  ;
+      setData(dataUpdated);
 
- 
+      setinp_Add("");
+    }
+  };
   return (
     <>
       <h1>{"Bienvenido " + user_Data.user_In_Sesion.user}</h1>
+
       <br />
+      <Data_Context.Provider
+        value={{
+          newData,
+          setData,
+          Change_Inp,
+        }}
+      >
+        <Counter />
+      </Data_Context.Provider>
+
       <form onSubmit={submit_Tasks}>
         <label>Add tasks</label>
         <br />
@@ -85,15 +91,15 @@ export const Home = () => {
         <button type="submit">Add</button>
       </form>
       <br />
-      <Data_Context.Provider value={{
-        newData,
-        setData,
-        Change_Inp
-      }}>
-       <ShowTasks data={newData}/>
+      <Data_Context.Provider
+        value={{
+          newData,
+          setData,
+          Change_Inp,
+        }}
+      >
+        <ShowTasks data={newData} />
       </Data_Context.Provider>
     </>
   );
 };
-
-

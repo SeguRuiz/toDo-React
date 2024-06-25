@@ -1,10 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Posts_Tools } from "../Fetchs/classes";
 import { Put_Tools } from "../Fetchs/classes";
+import { Data_Context } from "../pages/Home";
 const CheckBox = ({ id }) => {
+  let newData = useContext(Data_Context);
+
   const check_Ref = useRef();
   const [change, setChange] = useState(true);
 
+  
   const upload_State = async () => {
     let id_User = localStorage.getItem("user_Sesion");
     const data = new Posts_Tools();
@@ -26,7 +30,10 @@ const CheckBox = ({ id }) => {
 
       updated_Data.put_The_Data(find_User.id, updated_Data.data_For_Puts);
 
-      setChange(1);
+      let update2 =
+        (await see_Data.find((users) => users.id == id_User)) ?? false;
+
+        newData.setData(update2)
     } else {
       let copy_User = { ...find_User };
 
@@ -40,7 +47,10 @@ const CheckBox = ({ id }) => {
 
       updated_Data.put_The_Data(find_User.id, updated_Data.data_For_Puts);
 
-      setChange(0);
+      let update2 =
+        (await see_Data.find((users) => users.id == id_User)) ?? false;
+
+        newData.setData(update2)
     }
   };
 
@@ -58,12 +68,18 @@ const CheckBox = ({ id }) => {
           check_Ref.current.checked = e.state;
         }
       });
-    }
-    show_State()
-  }, [change]);
+    };
+    show_State();
+  }, []);
 
   return (
-    <input type="checkbox" id={id} ref={check_Ref} onClick={upload_State} />
+    <input
+      type="checkbox"
+      id={id}
+      ref={check_Ref}
+      onClick={upload_State}
+      
+    />
   );
 };
 

@@ -21,6 +21,7 @@ const ShowTasks = () => {
       let find_User = await see_Data.find((users) => users.id == id_User);
 
       setTask(find_User.tasks);
+      console.log(dataRender.newData);
     };
 
     seeData();
