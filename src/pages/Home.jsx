@@ -78,7 +78,7 @@ export const Home = () => {
     <>
     <div id="info_User">
       <h1>{"Bienvenido " + user_Data.user_In_Sesion.user}</h1>
-      <div><button onClick={cerrarSesion}>Cerrar sesion</button></div>
+      <div><button onClick={cerrarSesion} className="submit_Btn">Cerrar sesion</button></div>
     </div>
       <br />
 
