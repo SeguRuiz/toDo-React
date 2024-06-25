@@ -9,18 +9,28 @@
       },
       "tasks": [
         {
+          "task": "hola2",
+          "id": "7420904d-91ec-9016-396d-834f0cb8d8a4",
+          "state": false
+        },
+        {
+          "task": "holaaa2",
+          "id": "1a344764-b6b4-cbbb-039c-5f3155172934",
+          "state": false
+        }
+      ]
+    },
+    {
+      "id": "7fc9",
+      "info": {
+        "name": "kaka",
+        "email": "kaka@gmail.com",
+        "password": "123"
+      },
+      "tasks": [
+        {
           "task": "hola",
-          "id": "831c12fa-a676-6da1-b39e-f79a03b87dd1",
-          "state": false
-        },
-        {
-          "task": "nueva tarea",
-          "id": "b5a49819-fd5e-ded0-396c-46e07e7c53cb",
-          "state": false
-        },
-        {
-          "task": "otra tarea",
-          "id": "8081b727-5093-cfe2-9c9c-a19615ae0559",
+          "id": "12fe4b87-d6c7-a8dd-e3ea-8a04cbd1cf99",
           "state": false
         }
       ]

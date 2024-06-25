@@ -70,7 +70,7 @@ const CheckBox = ({ id }) => {
       });
     };
     show_State();
-  }, []);
+  }, [newData.newData]);
 
   return (
     <input

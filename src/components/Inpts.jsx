@@ -8,6 +8,7 @@ const Inpts = forwardRef(({ placeholder, type, value, Change_Value}, ref) => {
       ref={ref}
       value={value}
       onInput={Change_Value}
+      className="inpts"
     />
   );
 });

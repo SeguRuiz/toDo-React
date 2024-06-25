@@ -1,6 +1,6 @@
 import Inpts from "../components/Inpts";
 import { User_Context } from "./Filter";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 import { Put_Tools, Posts_Tools } from "../Fetchs/classes";
 import uuid from "react-uuid";
 import ShowTasks from "../components/showTasks";
@@ -12,6 +12,7 @@ export const Home = () => {
   let user_Data = useContext(User_Context);
 
   const [newData, setData] = useState(0);
+  const [placeholder, setPlaceholder] = useState("write ur task");
 
   let add_Tasks_Inp = useRef();
   let [Change_Inp, setinp_Add] = useState("");
@@ -32,6 +33,11 @@ export const Home = () => {
       )) ?? false;
 
     let inpt_Task_Value = add_Tasks_Inp.current.value.trim();
+
+    if (inpt_Task_Value == "") {
+      setinp_Add("");
+      setPlaceholder("You cant add empty tasks");
+    }
 
     if (inpt_Task_Value != "" && Find_user != false) {
       let id = uuid();
@@ -63,33 +69,35 @@ export const Home = () => {
   };
   return (
     <>
+    <div id="info_User">
       <h1>{"Bienvenido " + user_Data.user_In_Sesion.user}</h1>
-
+    </div>
       <br />
-      <Data_Context.Provider
-        value={{
-          newData,
-          setData,
-          Change_Inp,
-        }}
-      >
-        <Counter />
-      </Data_Context.Provider>
 
-      <form onSubmit={submit_Tasks}>
-        <label>Add tasks</label>
-        <br />
-        <Inpts
-          placeholder={"write ur task"}
-          type={"text"}
-          ref={add_Tasks_Inp}
-          value={Change_Inp}
-          Change_Value={Change_Add_Inp_Value}
-        />
-        <br />
-        <br />
-        <button type="submit">Add</button>
-      </form>
+      <div id="form_Tasks_Center">
+        <form onSubmit={submit_Tasks} id="form_Submit">
+          <Inpts
+            placeholder={placeholder}
+            type={"text"}
+            ref={add_Tasks_Inp}
+            value={Change_Inp}
+            Change_Value={Change_Add_Inp_Value}
+            
+          />
+          <button type="submit" className="submit_Btn">Add</button>
+        </form>
+        <Data_Context.Provider
+          value={{
+            newData,
+            setData,
+            Change_Inp,
+          }}
+        >
+        <div id="counter_Circle">
+          <Counter />
+          </div>
+        </Data_Context.Provider>
+      </div>
       <br />
       <Data_Context.Provider
         value={{

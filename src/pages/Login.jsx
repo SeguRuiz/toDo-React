@@ -1,10 +1,10 @@
 import Inpts from "../components/Inpts";
 import { Posts_Tools } from "../Fetchs/classes";
-import { useState, useRef, } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Navbar from "../components/Navbar";
 const Login = () => {
-  const go_To_Home = useNavigate()
+  const go_To_Home = useNavigate();
 
   let [validate_State, set_Validate_State] = useState({
     user_Name: null,
@@ -48,9 +48,9 @@ const Login = () => {
         info_To_User: "Bienvenido " + user_Value,
       }));
 
-      setTimeout(()=>{
-      go_To_Home('/Home')
-      }, 1000)
+      setTimeout(() => {
+        go_To_Home("/Home");
+      }, 1000);
     } else {
       if (user_Value == "" || Pass_Value == "") {
         set_Validate_State((state) => ({
@@ -70,6 +70,7 @@ const Login = () => {
 
   return (
     <>
+      <Navbar />
       <div id="form_L">
         <h1>{validate_State.info_To_User}</h1>
       </div>
@@ -89,7 +90,7 @@ const Login = () => {
           />
           <br />
           <br />
-          <button type="submit">log in</button>
+          <button  className='submit_Btn'type="submit">log in</button>
         </form>
       </div>
     </>

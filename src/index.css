@@ -1,29 +1,141 @@
-#nav{
+#nav {
   display: flex;
   justify-content: space-around;
   cursor: pointer;
 }
 
-#register_Container{
+#register_Container {
   display: flex;
   justify-content: center;
 }
-
-
 
 * {
   user-select: none;
 }
 
-#form_L{
+#info_User{
+display: flex;
+justify-content: center;
+}
+
+#form_L {
   display: flex;
   justify-content: center;
 }
 
-#TaskContainer{
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 20px;
+#TaskContainer {
+  padding: 10px;
+  width: 800px;
+ 
+}
+#taskFather {
+  border: rgba(0, 0, 0, 0.3) solid 1px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 5px;
+  height: 400px;
+  overflow: auto;
 }
 
+#taskFather {
+  border: rgba(0, 0, 0, 0.3) solid 1px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 5px;
+  height: 400px;
+  overflow: auto;
+}
+
+#taskFather2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: rgba(0, 0, 0, 0.3) solid 1px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 5px;
+  height: 400px;
+  overflow: auto;
+}
+
+#tasks {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  border: rgba(0, 0, 0, 0.3) solid 1px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 2px;
+  width: 825px;
+  
+}
+
+.task_text{
+font-size: 20px;
+}
+
+#eliminate_Div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#Task_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+#form_Submit{
+ gap: 20px;
+ margin-right: 470px;
+}
+
+#form_Tasks_Center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter_Div{
+  width: 800px;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  margin-left: 265px;
+}
+
+#counter_Circle{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 80px;
+width: 80px;
+border-radius: 100px;
+ border: rgba(0, 0, 0, 0.3) solid 1px;
+}
+
+.inpts{
+background-color: white;
+border: rgba(0, 0, 0, 0.3) solid 1px;
+font-size: 20px;
+padding: 5px;
+border-radius: 5px;
+margin-right: 10px;
+}
+
+.submit_Btn{
+background-color: white;
+border: rgba(0, 0, 0, 0.3) solid 1px;
+font-size: 20px;
+padding: 5px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.inpts:focus{
+border: none;
+}

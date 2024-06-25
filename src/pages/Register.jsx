@@ -2,6 +2,7 @@ import Inpts from "../components/Inpts";
 import { useRef, useState } from "react";
 import { Posts_Tools } from "../Fetchs/classes";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Register = () => {
   const go_To_Login = useNavigate()
@@ -89,6 +90,7 @@ const Register = () => {
 
   return (
     <>
+    <Navbar />
       <div id="register_Container">
         <h1>{registered_User.info_To_User}</h1>
       </div>
@@ -128,7 +130,7 @@ const Register = () => {
           />
           <br />
           <br />
-          <button type="submit">sing in</button>
+          <button className='submit_Btn' type="submit">sing in</button>
         </form>
       </div>
     </>

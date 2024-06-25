@@ -9,7 +9,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
         <Routes>
           <Route path="/Home" element={<Filter />} />
           <Route path="/" element={<Register />} />

@@ -17,6 +17,8 @@ const BtnEliminate = ({ id, key }) => {
 
     let tasks_Filtered = find_User.tasks.filter((tasks) => tasks.id != id);
 
+    console.log(find_User);
+
     let user = { ...find_User };
 
     user.tasks = tasks_Filtered;
@@ -25,7 +27,10 @@ const BtnEliminate = ({ id, key }) => {
 
     New_User_Updated.put_The_Data(find_User.id, New_User_Updated.data_For_Puts);
     //Bombillo
-    renderData.setData(find_User);
+    renderData.setData(Math.random);
+
+
+    
   };
 
   return (
