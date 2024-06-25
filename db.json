@@ -27,13 +27,7 @@
         "email": "kaka@gmail.com",
         "password": "123"
       },
-      "tasks": [
-        {
-          "task": "hola",
-          "id": "12fe4b87-d6c7-a8dd-e3ea-8a04cbd1cf99",
-          "state": false
-        }
-      ]
+      "tasks": []
     }
   ]
 }
