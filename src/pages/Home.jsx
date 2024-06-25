@@ -39,10 +39,11 @@ export const Home = () => {
       let task = {
         task: inpt_Task_Value,
         id: id,
+        state: false
       };
 
       Find_user.tasks.push(task);
-      console.log(Find_user.tasks);
+      
 
       let new_Task_Modification = new Put_Tools(Find_user);
 
@@ -55,9 +56,9 @@ export const Home = () => {
         (users) => users.id == user_Data.user_In_Sesion.user_id
       ) ?? false;
 
-      console.log(dataUpdated);
-
-      setData(dataUpdated)
+      
+      //Bombillo
+      setData(dataUpdated) 
       
       setinp_Add('')
     }
@@ -86,7 +87,8 @@ export const Home = () => {
       <br />
       <Data_Context.Provider value={{
         newData,
-        setData
+        setData,
+        Change_Inp
       }}>
        <ShowTasks data={newData}/>
       </Data_Context.Provider>

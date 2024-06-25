@@ -7,20 +7,7 @@
         "email": "Luis@gmail.com",
         "password": "123"
       },
-      "tasks": [
-        {
-          "task": "hola",
-          "id": "145f6d04-05e1-849f-636d-8588bab6cd87"
-        },
-        {
-          "task": "nueva tarea",
-          "id": "619da59b-3f3f-d99a-0ade-2ff39931db76"
-        },
-        {
-          "task": "sdf",
-          "id": "44ba8e3a-17cb-0659-39cb-40ba40223034"
-        }
-      ]
+      "tasks": []
     }
   ]
 }
